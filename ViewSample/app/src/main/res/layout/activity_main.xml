@@ -17,4 +17,13 @@
         android:background="#ffffff"
         android:text="@string/tv_msg"
         android:textSize="24dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etInput"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff"
+        android:inputType="text" />
 </LinearLayout>
