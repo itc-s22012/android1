@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A1A98A"
+    android:background="#A1A9BA"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -19,11 +19,41 @@
         android:textSize="24dp" />
 
     <EditText
+        android:id="@+id/etInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etInput"
-        android:layout_marginBottom="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
         android:background="#ffffff"
-        android:inputType="text" />
+        android:inputType="phone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#df7401"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cd_drink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@string/cd_drink"
+            tools:background="#ffffff" />
+
+        <CheckBox
+            android:id="@+id/cd_food"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="@string/cd_food" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_save" />
+
+
 </LinearLayout>
