@@ -13,20 +13,19 @@ class OrderConfirmDialogFragment : DialogFragment() {
         AlertDialog.Builder(requireActivity())
             .setTitle(R.string.dialog_title)
             .setMessage(R.string.dialog_msg)
-            .setPositiveButton(R.string.dialog_btn_ok,DialogButtonClickListener())
-            .setNegativeButton(R.string.dialog_btn_ng,DialogButtonClickListener())
-            .setNeutralButton(R.string.dialog_btn_nu,DialogButtonClickListener())
+            .setPositiveButton(R.string.dialog_btn_ok,dialogButtonClickListener)
+            .setNegativeButton(R.string.dialog_btn_ng,dialogButtonClickListener)
+            .setNeutralButton(R.string.dialog_btn_nu,dialogButtonClickListener)
             .create()
-    private inner class DialogButtonClickListener: DialogInterface.OnClickListener {
-        override fun onClick(dialog: DialogInterface?, which: Int) {
+    private val dialogButtonClickListener =
+        DialogInterface.OnClickListener { dialog, which ->
             var msg = when(which) {
                 DialogInterface.BUTTON_POSITIVE -> getString(R.string.dialog_ok_toast)
                 DialogInterface.BUTTON_NEGATIVE -> getString(R.string.dialog_ng_toast)
                 DialogInterface.BUTTON_NEUTRAL -> getString(R.string.dialog_nu_toast)
                 else -> getString(R.string.dialog_ng_toast)
 
+            }
+            Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
         }
-    Toast.makeText(activity, msg, Toast.LENGTH_LONG).show()
-    }
-    }
 }
