@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textSize="24sp"
+        android:textSize="24dp"
         app:layout_constraintBaseline_toBaselineOf="@id/tvYen"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="唐揚げ定食" />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="@string/tv_yen"
+        android:text="@string/tv_menu_unit"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/tvName"
         app:layout_constraintEnd_toEndOf="parent" />
