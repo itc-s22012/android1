@@ -3,6 +3,7 @@ package jp.ac.it_college.std.s22012.menusample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initList(binding.lvMenu)
+        setSupportActionBar(binding.toolbar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -35,11 +37,24 @@ class MainActivity : AppCompatActivity() {
         return result
     }
 
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        menuInflater.inflate(R.menu.menu_context_menu_list, menu)
+        menu?.setHeaderTitle(R.string.menu_list_context_header)
+    }
+
     private fun initList(view: RecyclerView) {
         view.adapter = MenuListAdapter(menuList, ::order)
         val layoutManager = LinearLayoutManager(this)
         view.layoutManager = layoutManager
         view.addItemDecoration(DividerItemDecoration(this,layoutManager.orientation))
+
+        registerForContextMenu(view)
         }
     private fun order(name: String, price: Int) {
         startActivity(Intent(this,MenuThanksActivity::class.java).apply {
